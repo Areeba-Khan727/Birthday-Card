@@ -1,0 +1,487 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================
+   BALLOONS
+========================= */
+
+.balloons {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 60;
+}
+
+.balloon {
+    position: absolute;
+    width: 55px;
+    height: 70px;
+    border-radius: 50%;
+
+    animation: balloonFloat 3s ease-in-out infinite;
+}
+
+
+/* Balloon Strings */
+
+.balloon::after {
+    content: "";
+
+    position: absolute;
+
+    width: 2px;
+    height: 100px;
+
+    background: #777;
+
+    top: 65px;
+    left: 50%;
+}
+
+
+/* Left Balloons */
+
+.balloon1 {
+    left: 30px;
+    top: 20%;
+    background: #ff4081;
+}
+
+.balloon2 {
+    left: 80px;
+    top: 55%;
+    background: #ffcc00;
+
+    animation-delay: 0.5s;
+}
+
+.balloon3 {
+    left: 20px;
+    top: 75%;
+    background: #8e44ad;
+
+    animation-delay: 1s;
+}
+
+
+/* Right Balloons */
+
+.balloon4 {
+    right: 30px;
+    top: 20%;
+    background: #3498db;
+
+    animation-delay: 0.3s;
+}
+
+.balloon5 {
+    right: 80px;
+    top: 55%;
+    background: #2ecc71;
+
+    animation-delay: 0.8s;
+}
+
+.balloon6 {
+    right: 20px;
+    top: 75%;
+    background: #ff7043;
+
+    animation-delay: 1.2s;
+}
+
+
+/* Balloon Animation */
+
+@keyframes balloonFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+
+/* =========================
+   FIRST SCREEN
+========================= */
+
+.birthday-title {
+
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #ff9a9e,
+        #fad0c4
+    );
+
+    z-index: 20;
+
+    animation: titleDisappear 1s ease forwards;
+
+    animation-delay: 2s;
+}
+
+
+.birthday-title h1 {
+
+    color: #ff4081;
+
+    font-size: 55px;
+
+    text-align: center;
+
+    animation: titleZoom 1.5s ease;
+}
+
+
+/* =========================
+   BIRTHDAY PAGE
+========================= */
+
+.birthday-page {
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #ff9a9e,
+        #fad0c4
+    );
+
+    padding: 30px;
+
+    opacity: 0;
+
+    animation: pageShow 1s ease forwards;
+
+    animation-delay: 2s;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.birthday-page h1 {
+
+    color: #ff4081;
+
+    font-size: 50px;
+}
+
+
+.birthday-page h2 {
+
+    color: #555;
+}
+
+
+/* =========================
+   CAKE
+========================= */
+
+.cake {
+
+    position: relative;
+
+    width: 220px;
+    height: 180px;
+
+    margin: 20px auto;
+}
+
+
+/* Bottom */
+
+.cake-bottom {
+
+    position: absolute;
+
+    bottom: 0;
+    left: 20px;
+
+    width: 180px;
+    height: 60px;
+
+    background: #ff69b4;
+
+    border-radius:
+        10px
+        10px
+        20px
+        20px;
+}
+
+
+/* Middle */
+
+.cake-middle {
+
+    position: absolute;
+
+    bottom: 50px;
+    left: 35px;
+
+    width: 150px;
+    height: 50px;
+
+    background: #ffb6c1;
+
+    border-radius: 10px;
+}
+
+
+/* Top */
+
+.cake-top {
+
+    position: absolute;
+
+    bottom: 90px;
+    left: 50px;
+
+    width: 120px;
+    height: 45px;
+
+    background: #ffc0cb;
+
+    border-radius: 50%;
+}
+
+
+/* =========================
+   CANDLE
+========================= */
+
+.candle {
+
+    position: absolute;
+
+    bottom: 130px;
+    left: 100px;
+
+    width: 20px;
+    height: 45px;
+
+    background: white;
+
+    border-radius: 5px;
+
+    z-index: 2;
+}
+
+
+/* Flame */
+
+.flame {
+
+    position: absolute;
+
+    width: 18px;
+    height: 25px;
+
+    background: orange;
+
+    border-radius:
+        50%
+        50%
+        50%
+        0;
+
+    transform: rotate(-45deg);
+
+    top: -20px;
+    left: 1px;
+
+    animation:
+        flame 0.7s infinite alternate;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+
+    padding: 14px 25px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: #ff4081;
+
+    color: white;
+
+    font-size: 17px;
+
+    cursor: pointer;
+}
+
+
+button:hover {
+
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   SURPRISE PAGE
+========================= */
+
+#surprise {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #ff9a9e,
+        #fad0c4
+    );
+
+    z-index: 50;
+
+    padding: 30px;
+}
+
+
+#surprise h1 {
+
+    color: #ff4081;
+
+    font-size: 50px;
+}
+
+
+#surprise p {
+
+    font-size: 20px;
+
+    color: #555;
+
+    max-width: 500px;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes titleZoom {
+
+    0% {
+
+        opacity: 0;
+
+        transform: scale(0.5);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+
+@keyframes titleDisappear {
+
+    0% {
+
+        opacity: 1;
+
+        visibility: visible;
+    }
+
+    100% {
+
+        opacity: 0;
+
+        visibility: hidden;
+    }
+}
+
+
+@keyframes pageShow {
+
+    0% {
+
+        opacity: 0;
+
+        transform: scale(0.9);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+
+@keyframes flame {
+
+    from {
+
+        transform:
+            rotate(-45deg)
+            scale(1);
+    }
+
+    to {
+
+        transform:
+            rotate(-45deg)
+            scale(1.15);
+    }
+}
+.birthday-pic {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    margin: 20px auto;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
